@@ -1,0 +1,59 @@
+quarkus:
+  application:
+    name: quarkus-api-skeleton
+
+  http:
+    port: 8080
+
+  # ---- Graceful shutdown ----
+  # On SIGTERM/Ctrl+C, Quarkus stops accepting new requests and waits up to
+  # this duration for in-flight requests to finish before shutting down.
+  shutdown:
+    timeout: 20s
+
+  # ---- Datasource (MySQL) ----
+  datasource:
+    db-kind: mysql
+    username: root
+    password: root
+    jdbc:
+      url: jdbc:mysql://localhost:3306/skeleton_db?useSSL=false&serverTimezone=Asia/Jakarta&allowPublicKeyRetrieval=true
+
+  hibernate-orm:
+    database:
+      generation: update
+    log:
+      sql: true
+
+  # ---- JWT (SmallRye JWT) ----
+  # Keys below are generated with the commands in README.md and placed
+  # under src/main/resources/.
+  smallrye-jwt:
+    enabled: true
+
+mp:
+  jwt:
+    verify:
+      publickey:
+        location: publicKey.pem
+      issuer: "https://skeleton-api.example.com"
+
+smallrye:
+  jwt:
+    sign:
+      key:
+        location: privateKey.pem
+    new-token:
+      lifespan: 86400   # seconds = 24 hours
+
+"%test":
+  quarkus:
+    datasource:
+      db-kind: h2
+      jdbc:
+        url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1
+      username: sa
+      password: sa
+    hibernate-orm:
+      database:
+        generation: drop-and-create
