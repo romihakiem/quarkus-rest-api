@@ -30,11 +30,11 @@ public class ItemResource {
 
     @GET
     public Response getAll(@QueryParam("page") Integer page,
-            @QueryParam("size") Integer size,
-            @QueryParam("sortBy") String sortBy,
-            @QueryParam("direction") @DefaultValue("desc") String direction,
-            @QueryParam("search") String search,
-            @QueryParam("category") String category) {
+                           @QueryParam("size") Integer size,
+                           @QueryParam("sortBy") String sortBy,
+                           @QueryParam("direction") @DefaultValue("desc") String direction,
+                           @QueryParam("search") String search,
+                           @QueryParam("category") String category) {
         var result = itemService.getAll(page, size, sortBy, direction, search, category);
         return ResponseUtil.ok("Items fetched successfully", result);
     }

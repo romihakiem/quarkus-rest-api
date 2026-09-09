@@ -33,7 +33,7 @@ public class Item extends PanacheEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "owner_id", nullable = false)
-    @JsonIgnoreProperties({ "password", "hibernateLazyInitializer", "handler" })
+    @JsonIgnoreProperties({"password", "hibernateLazyInitializer", "handler"})
     public User owner;
 
     @CreationTimestamp

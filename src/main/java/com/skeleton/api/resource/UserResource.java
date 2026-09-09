@@ -22,9 +22,9 @@ public class UserResource {
 
     @GET
     public Response getAll(@QueryParam("page") Integer page,
-            @QueryParam("size") Integer size,
-            @QueryParam("sortBy") String sortBy,
-            @QueryParam("direction") @DefaultValue("desc") String direction) {
+                           @QueryParam("size") Integer size,
+                           @QueryParam("sortBy") String sortBy,
+                           @QueryParam("direction") @DefaultValue("desc") String direction) {
         var result = userService.getAll(page, size, sortBy, direction);
         return ResponseUtil.ok("Users fetched successfully", result);
     }

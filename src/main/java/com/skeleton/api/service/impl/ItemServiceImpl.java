@@ -51,7 +51,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public PageResponse<ItemResponse> getAll(Integer page, Integer size, String sortBy, String direction,
-            String search, String category) {
+                                             String search, String category) {
         Page pageable = PaginationUtil.buildPage(page, size);
         Sort sort = PaginationUtil.buildSort(sortBy, direction);
 

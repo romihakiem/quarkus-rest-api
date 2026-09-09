@@ -8,7 +8,7 @@ public interface ItemService {
     ItemResponse create(ItemRequest request, String ownerEmail);
 
     PageResponse<ItemResponse> getAll(Integer page, Integer size, String sortBy, String direction,
-            String search, String category);
+                                      String search, String category);
 
     ItemResponse getById(Long id);
 
