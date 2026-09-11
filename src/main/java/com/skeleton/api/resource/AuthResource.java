@@ -5,7 +5,7 @@ import com.skeleton.api.dto.request.RegisterRequest;
 import com.skeleton.api.security.CurrentUser;
 import com.skeleton.api.service.AuthService;
 import com.skeleton.api.util.ResponseUtil;
-import jakarta.annotation.security.Authenticated;
+import io.quarkus.security.Authenticated;
 import jakarta.annotation.security.PermitAll;
 import jakarta.inject.Inject;
 import jakarta.validation.Valid;

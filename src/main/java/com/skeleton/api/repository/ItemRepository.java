@@ -15,7 +15,7 @@ public class ItemRepository implements PanacheRepository<Item> {
      */
     public PanacheQuery<Item> search(String search, String category, Sort sort) {
         StringBuilder query = new StringBuilder("1=1");
-        Parameters params = Parameters.with("dummy", 1);
+        Parameters params = new Parameters();
 
         if (search != null && !search.isBlank()) {
             query.append(" and lower(name) like :search");

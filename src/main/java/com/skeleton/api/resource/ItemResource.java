@@ -4,7 +4,7 @@ import com.skeleton.api.dto.request.ItemRequest;
 import com.skeleton.api.security.CurrentUser;
 import com.skeleton.api.service.ItemService;
 import com.skeleton.api.util.ResponseUtil;
-import jakarta.annotation.security.Authenticated;
+import io.quarkus.security.Authenticated;
 import jakarta.inject.Inject;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
